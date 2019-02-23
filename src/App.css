@@ -1,7 +1,18 @@
 .App__main {
-  background: rgb(85, 93, 112);
   display: flex;
   flex-flow: wrap;
   padding: 0em 10em;
   height: 100vh;
+}
+
+.Menu__items {
+  text-decoration: none;
+  color: #be5959;
+  outline: none;
+  padding: 5px;
+  transition: all 0.1s;
+}
+
+.Menu__items:hover {
+  background: #56768b;
 }
