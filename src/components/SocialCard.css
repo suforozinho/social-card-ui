@@ -1,0 +1,28 @@
+.SocialCard {
+  background: rgb(167, 167, 167);
+  border-radius: 5px;
+  box-shadow: -7px 10px 15px rgb(37, 46, 53);
+  width: 40em;
+  height: 15em;
+  margin-left: 60px;
+  margin-top: 30px;
+  overflow: auto;
+}
+
+.SocialCard__header {
+  border-bottom: 1px solid rgb(187, 186, 186);
+  height: 65%;
+  padding-top: 17px;
+}
+
+.SocialCard__main {
+  color: rgb(85, 84, 84);
+  padding: 20px;
+}
+
+.SocialCard__header__photo {
+  border: 1px solid rgb(187, 186, 186);
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+}

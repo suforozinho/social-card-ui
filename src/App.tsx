@@ -1,25 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Menu from './components/Menu';
+import SocialCard from './components/SocialCard';
 import './App.css';
 
-class App extends Component {
+interface IState {
+  menuOn: boolean;
+}
+
+class App extends Component<{}, IState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      menuOn: false
+    }
+  };
+
+  toogleMenu = () => {
+    this.setState({menuOn: !this.state.menuOn});
+  }
+
+  toggleBgLight = () => {
+    const theApp = document.getElementById('App');
+    theApp ? theApp.style.background = 'rgb(248, 248, 248)' : null;
+  }
+
+  toggleBgDark = () => {
+    const theApp = document.getElementById('App');
+    theApp ? theApp.style.background = 'rgb(85, 93, 112)' : null;
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="App" id="App">
+        <Menu toggleMenu={this.toogleMenu} />
+        {this.state.menuOn &&
+        <div className="Menu__options">
+          <button>Light</button>
+          <button>Dark</button>
+        </div>}
+        <div className="App__main">
+          <SocialCard />
+          <SocialCard />
+          <SocialCard />
+          <SocialCard />
+          <SocialCard />
+        </div>
       </div>
     );
   }
