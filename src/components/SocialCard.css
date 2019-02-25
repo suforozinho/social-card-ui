@@ -33,3 +33,9 @@
     width: 20em;
   }
 }
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .SocialCard {
+    min-width: 10em;
+  }
+}
