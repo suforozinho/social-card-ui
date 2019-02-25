@@ -16,3 +16,9 @@
 .Menu__items:hover {
   background: #56768b;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .App__main {
+    padding: 0;
+  }
+}
