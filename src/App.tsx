@@ -42,16 +42,17 @@ class App extends Component<{}, IState> {
   componentDidMount() {
     axios('https://api.twitch.tv/helix/games/top', {
       headers: {
-        'Client-ID': 'YOU CLIENT ID FOR THE TWITCH API'
+        'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID
       }
     }).then(response => {
+      console.log(response.data.data);
       this.setState({ gamesArray: response.data.data })
     });
   }
 
   render() {
     const gamesSocialCards = this.state.gamesArray.map(theGame => (
-      <SocialCard name={theGame.name} key={theGame.name} />
+      <SocialCard name={theGame.name} box_art={theGame.box_art_url} key={theGame.name} />
     ))
 
     return (
