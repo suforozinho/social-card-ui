@@ -30,10 +30,8 @@ export default class SocialCard extends React.Component<IProps, IState> {
         return widthHeight[matched];
       })});
       console.log(this.state.imageUrl);
-    }, 500)
-    
-    // console.log(this.state.imageUrl);
-  }
+    }, 500);
+  };
 
   render() {
     return (
