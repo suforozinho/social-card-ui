@@ -1,12 +1,20 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import SocialCard from './components/SocialCard';
 import { slide as Menu } from 'react-burger-menu';
 import './App.css';
 import './ReactBurgerStyles.css';
 
+interface IGameObject {
+  box_art_url: string;
+  id: number,
+  name: string,
+}
+
 interface IState {
   menuOn: boolean;
   backgroundColor: string;
+  gamesArray: IGameObject[];
 }
 
 class App extends Component<{}, IState> {
@@ -14,7 +22,8 @@ class App extends Component<{}, IState> {
     super(props);
     this.state = {
       menuOn: false,
-      backgroundColor: 'rgb(85, 93, 112)'
+      backgroundColor: 'rgb(85, 93, 112)',
+      gamesArray: []
     }
   };
   
@@ -30,7 +39,21 @@ class App extends Component<{}, IState> {
     this.setState({ backgroundColor: 'rgb(85, 93, 112)' });
   }
 
+  componentDidMount() {
+    axios('https://api.twitch.tv/helix/games/top', {
+      headers: {
+        'Client-ID': 'YOU CLIENT ID FOR THE TWITCH API'
+      }
+    }).then(response => {
+      this.setState({ gamesArray: response.data.data })
+    });
+  }
+
   render() {
+    const gamesSocialCards = this.state.gamesArray.map(theGame => (
+      <SocialCard name={theGame.name} key={theGame.name} />
+    ))
+
     return (
       <div className="App" id="App" style={{ background: this.state.backgroundColor }}>
         <Menu>
@@ -38,11 +61,7 @@ class App extends Component<{}, IState> {
           <a href="#" onClick={this.toggleBgDark} className="Menu__items">Dark</a>
         </Menu>
         <div className="App__main">
-          <SocialCard />
-          <SocialCard />
-          <SocialCard />
-          <SocialCard />
-          <SocialCard />
+          {gamesSocialCards}
         </div>
       </div>
     );

@@ -1,0 +1,3 @@
+TASKS:
+- Learned how to make request to get the appropriate date [DONE]
+- Display the data of each object in the array inside the social cards

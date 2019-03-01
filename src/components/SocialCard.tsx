@@ -1,7 +1,16 @@
 import React from 'react';
 import './SocialCard.css';
 
-export default class SocialCard extends React.Component<{}, {}> {
+interface IProps {
+  name: string,
+  // box_art: string
+}
+
+export default class SocialCard extends React.Component<IProps, {}> {
+  constructor(props: IProps) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="SocialCard">
@@ -9,6 +18,7 @@ export default class SocialCard extends React.Component<{}, {}> {
           <div className="SocialCard__header__photo"></div>
         </div>
         <div className="SocialCard__main">
+          {this.props.name}
         </div>
       </div>
     )
