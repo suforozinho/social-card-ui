@@ -1,12 +1,15 @@
 .SocialCard {
-  background: rgb(167, 167, 167);
+  background: #f7f7f7;
+  background-repeat: no-repeat;
   border-radius: 5px;
   box-shadow: -7px 10px 15px rgb(37, 46, 53);
+  display: flex;
   width: 40em;
   height: 15em;
   margin-left: 60px;
   margin-top: 30px;
   overflow: auto;
+  flex-flow: column;
 }
 
 .SocialCard__header {
@@ -16,14 +19,18 @@
 }
 
 .SocialCard__main {
-  color: rgb(85, 84, 84);
+  background: rgb(85, 84, 84);
+  color: whitesmoke;
   padding: 20px;
+  text-align: center;
+  font-size: 23px;
+  flex-grow: 1;
 }
 
 .SocialCard__header__photo {
   border: 1px solid rgb(187, 186, 186);
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 80px;
   margin-left: 20px;
 }
 

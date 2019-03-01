@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: wrap;
   padding: 0em 10em;
-  height: 100vh;
+  height: 100%;
 }
 
 .Menu__items {

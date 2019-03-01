@@ -22,7 +22,7 @@ export default class SocialCard extends React.Component<IProps, IState> {
   componentDidMount() {
     const widthHeight: { [index: string]: string } = {
       '{width}': '70',
-      '{height}': '70',
+      '{height}': '80',
     };
 
     setTimeout(() => {
