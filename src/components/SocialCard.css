@@ -12,9 +12,7 @@
 }
 
 .SocialCard__header {
-  /* background-repeat: no-repeat !important; */
   background-position: center top -120px !important;
-  border-bottom: 1px solid rgb(187, 186, 186);
   height: 65%;
   padding-top: 17px;
 }
