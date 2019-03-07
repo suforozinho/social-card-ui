@@ -21,8 +21,8 @@ export default class SocialCard extends React.Component<IProps, IState> {
 
   componentDidMount() {
     const widthHeight: { [index: string]: string } = {
-      '{width}': '70',
-      '{height}': '80',
+      '{width}': '700',
+      '{height}': '800',
     };
 
     setTimeout(() => {
@@ -36,10 +36,10 @@ export default class SocialCard extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="SocialCard">
-        <div className="SocialCard__header">
-          <div className="SocialCard__header__photo">
+        <div className="SocialCard__header" style={{background: `url("${this.state.imageUrl}") no-repeat`}}>
+          {/* <div className="SocialCard__header__photo">
             <img src={this.state.imageUrl} />
-          </div>
+          </div> */}
         </div>
         <div className="SocialCard__main">
           {this.props.name}
