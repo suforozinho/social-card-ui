@@ -1,3 +1,7 @@
+.App {
+  display: flex;
+}
+
 .App__main {
   display: flex;
   flex-flow: wrap;
@@ -16,6 +20,25 @@
 .Menu__items:hover {
   background: #56768b;
 }
+
+.the-select-div {
+  padding: 8px;
+}
+
+.the-select {
+  appearance: none;
+  -moz-appearance: none;
+  box-shadow: 2px 0px 16px 9px rgb(37, 46, 53);
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+  background: url(./assets/white-down-arrow.png) no-repeat 90px rgb(85, 84, 84);
+  background-size: 16px 16px;
+  color: whitesmoke;
+  outline: none;
+  width: 120px;
+}
+
 
 @media (min-width: 320px) and (max-width: 480px) {
   .App__main {

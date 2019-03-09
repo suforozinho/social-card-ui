@@ -29,7 +29,6 @@ export default class SocialCard extends React.Component<IProps, IState> {
       this.setState({ imageUrl: this.props.box_art.replace(/{width}|{height}/gi, matched => {
         return widthHeight[matched];
       })});
-      console.log(this.state.imageUrl);
     }, 500);
   };
 

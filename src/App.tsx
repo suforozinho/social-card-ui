@@ -11,10 +11,27 @@ interface IGameObject {
   name: string,
 }
 
+interface IStreamObject {
+  community_ids: [];
+  game_id: string;
+  id: string;
+  language: string;
+  started_at: string;
+  tag_ids: string[];
+  thumbnail_url: string;
+  title: string;
+  type: string;
+  user_id: string;
+  user_name: string;
+  viewer_count: number;
+}
+
 interface IState {
   menuOn: boolean;
   backgroundColor: string;
   gamesArray: IGameObject[];
+  streamsArray: IStreamObject[];
+  dataType: 'game' | 'stream';
 }
 
 class App extends Component<{}, IState> {
@@ -23,7 +40,9 @@ class App extends Component<{}, IState> {
     this.state = {
       menuOn: false,
       backgroundColor: 'rgb(85, 93, 112)',
-      gamesArray: []
+      gamesArray: [],
+      streamsArray: [],
+      dataType: 'game'
     }
   };
   
@@ -45,14 +64,25 @@ class App extends Component<{}, IState> {
         'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID
       }
     }).then(response => {
-      console.log(response.data.data);
       this.setState({ gamesArray: response.data.data })
+    });
+
+    axios('https://api.twitch.tv/helix/streams?first=20', {
+      headers: {
+        'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID
+      }
+    }).then(response => {
+      this.setState({ streamsArray: response.data.data });
     });
   }
 
   render() {
     const gamesSocialCards = this.state.gamesArray.map(theGame => (
       <SocialCard name={theGame.name} box_art={theGame.box_art_url} key={theGame.name} />
+    ));
+
+    const streamsSocialCards = this.state.streamsArray.map(theStream => (
+      <SocialCard name={theStream.title} box_art={theStream.thumbnail_url} key={theStream.title} />
     ))
 
     return (
@@ -62,7 +92,13 @@ class App extends Component<{}, IState> {
           <a href="#" onClick={this.toggleBgDark} className="Menu__items">Dark</a>
         </Menu>
         <div className="App__main">
-          {gamesSocialCards}
+          {this.state.dataType === 'game' && gamesSocialCards}
+          {this.state.dataType === 'stream' && streamsSocialCards}
+        </div>
+        <div className="the-select-div">
+          <select className="the-select" name="" id="">
+            <option value="novalue">novalue</option>
+          </select>
         </div>
       </div>
     );
