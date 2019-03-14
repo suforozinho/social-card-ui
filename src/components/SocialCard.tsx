@@ -4,7 +4,8 @@ import { string } from 'prop-types';
 
 interface IProps {
   name: string,
-  box_art: string
+  box_art: string,
+  dataType: 'game' | 'stream'
 }
 
 interface IState {
@@ -20,10 +21,21 @@ export default class SocialCard extends React.Component<IProps, IState> {
   }
 
   componentDidMount() {
-    const widthHeight: { [index: string]: string } = {
-      '{width}': '700',
-      '{height}': '800',
-    };
+    let widthHeight: { [index: string]: string };
+
+    if (this.props.dataType === 'game') {
+      widthHeight = {
+        '{width}': '700',
+        '{height}': '800',
+      };
+      
+    } else {
+      widthHeight = {
+        '{width}': '400',
+        '{height}': '225',
+      };
+    }
+    
 
     setTimeout(() => {
       this.setState({ imageUrl: this.props.box_art.replace(/{width}|{height}/gi, matched => {
@@ -35,10 +47,8 @@ export default class SocialCard extends React.Component<IProps, IState> {
   render() {
     return (
       <div className="SocialCard">
-        <div className="SocialCard__header" style={{background: `url("${this.state.imageUrl}") no-repeat`}}>
-          {/* <div className="SocialCard__header__photo">
-            <img src={this.state.imageUrl} />
-          </div> */}
+        <div className="SocialCard__header" style={{height: this.props.dataType === 'stream' ? '225px' : ''}}>
+          <img src={this.state.imageUrl} alt=""/>
         </div>
         <div className="SocialCard__main">
           {this.props.name}

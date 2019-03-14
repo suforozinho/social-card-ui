@@ -3,8 +3,7 @@
   border-radius: 5px;
   box-shadow: -7px 10px 15px rgb(37, 46, 53);
   display: flex;
-  width: 40em;
-  height: 15em;
+  width: 25em;
   margin-left: 60px;
   margin-top: 30px;
   overflow: auto;
@@ -12,9 +11,7 @@
 }
 
 .SocialCard__header {
-  background-position: center top -120px !important;
-  height: 65%;
-  padding-top: 17px;
+  /* height: 225px; */
 }
 
 .SocialCard__main {

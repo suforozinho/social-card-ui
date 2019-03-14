@@ -2,4 +2,7 @@ TASKS:
 - Learned how to make request to get the appropriate date [DONE]
 - Display the data of each object in the array inside the social cards [DONE]
 - Improve the style of the data being displayed [DONE]
-- Being able to show the top streams too
+- Being able to show the top streams too [DONE]
+- Be able to select between games or stream using an select tag [DONE]
+- Change the style of the Social Cards again, make it display the image correctly
+and be smaller

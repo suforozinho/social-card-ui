@@ -58,6 +58,11 @@ class App extends Component<{}, IState> {
     this.setState({ backgroundColor: 'rgb(85, 93, 112)' });
   }
 
+  handleSubmitValueChange = (event: any) => {
+    console.log('type', event.type);
+    this.setState({ dataType: event.target.value })
+  }
+
   componentDidMount() {
     axios('https://api.twitch.tv/helix/games/top', {
       headers: {
@@ -78,12 +83,12 @@ class App extends Component<{}, IState> {
 
   render() {
     const gamesSocialCards = this.state.gamesArray.map(theGame => (
-      <SocialCard name={theGame.name} box_art={theGame.box_art_url} key={theGame.name} />
+      <SocialCard name={theGame.name} box_art={theGame.box_art_url} dataType={'game'} key={theGame.name} />
     ));
 
     const streamsSocialCards = this.state.streamsArray.map(theStream => (
-      <SocialCard name={theStream.title} box_art={theStream.thumbnail_url} key={theStream.title} />
-    ))
+      <SocialCard name={theStream.title} box_art={theStream.thumbnail_url} dataType={'stream'} key={theStream.title} />
+    ));
 
     return (
       <div className="App" id="App" style={{ background: this.state.backgroundColor }}>
@@ -96,8 +101,9 @@ class App extends Component<{}, IState> {
           {this.state.dataType === 'stream' && streamsSocialCards}
         </div>
         <div className="the-select-div">
-          <select className="the-select" name="" id="">
-            <option value="novalue">novalue</option>
+          <select value={this.state.dataType} onChange={this.handleSubmitValueChange} className="the-select" name="" id="">
+            <option value="game">Games</option>
+            <option value="stream">Streams</option>
           </select>
         </div>
       </div>
