@@ -3,15 +3,10 @@
   border-radius: 5px;
   box-shadow: -7px 10px 15px rgb(37, 46, 53);
   display: flex;
-  width: 25em;
   margin-left: 60px;
   margin-top: 30px;
   overflow: auto;
   flex-flow: column;
-}
-
-.SocialCard__header {
-  /* height: 225px; */
 }
 
 .SocialCard__main {

@@ -25,8 +25,8 @@ export default class SocialCard extends React.Component<IProps, IState> {
 
     if (this.props.dataType === 'game') {
       widthHeight = {
-        '{width}': '700',
-        '{height}': '800',
+        '{width}': '300',
+        '{height}': '400',
       };
       
     } else {
@@ -36,7 +36,8 @@ export default class SocialCard extends React.Component<IProps, IState> {
       };
     }
     
-
+    console.log(this.props.dataType);
+    
     setTimeout(() => {
       this.setState({ imageUrl: this.props.box_art.replace(/{width}|{height}/gi, matched => {
         return widthHeight[matched];
@@ -46,8 +47,12 @@ export default class SocialCard extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <div className="SocialCard">
-        <div className="SocialCard__header" style={{height: this.props.dataType === 'stream' ? '225px' : ''}}>
+      <div className="SocialCard" style={{
+        width: this.props.dataType === 'game' ? '18.7em' : '25em'
+      }}>
+        <div className="SocialCard__header" style={{
+          height: this.props.dataType === 'stream' ? '225px' : '400px',
+        }}>
           <img src={this.state.imageUrl} alt=""/>
         </div>
         <div className="SocialCard__main">
