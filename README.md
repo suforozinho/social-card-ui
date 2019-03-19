@@ -1,3 +1,9 @@
+# IMPORTANT NOTE
+In order to run this project, you will need to get your client_id for the  
+Twitch API. Put it in a .env file as: REACT_APP_TWITCH_CLIENT_ID
+
+------------------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -42,3 +48,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# Screenshots
+
+![Imgur](https://i.imgur.com/IPiOIkB.png)
+
+![Imgur](https://i.imgur.com/xoNJW9t.png)
